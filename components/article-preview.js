@@ -21,7 +21,6 @@ export default function ArticlePreview({
         <DateComponent dateString={publishDate} />
       </div>
       <p className="text-lg leading-relaxed mb-4">{description}</p>
-      {author && <Avatar name={author.name} picture={author.picture} />}
     </div>
   )
 }
