@@ -57,7 +57,10 @@ const Article: React.FC<Props> = ({ article, moreArticles, preview }) => {
   )
 }
 
-export async function getStaticProps({ params, preview = false }) {
+export async function getStaticProps(props: any) {
+  
+  const params = props.params
+  const preview = props.preview || false
   const data = await getArticleAndMoreArticles(params.slug, preview)
 
   return {
@@ -72,7 +75,7 @@ export async function getStaticProps({ params, preview = false }) {
 export async function getStaticPaths() {
   const allArticles = await getAllArticlesWithSlug()
   return {
-    paths: allArticles?.map(({ slug }) => `/articles/${slug}`) ?? [],
+    paths: allArticles?.map((article: any) => `/articles/${article.slug}`) ?? [],
     fallback: true,
   }
 }
