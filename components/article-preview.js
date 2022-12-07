@@ -18,9 +18,9 @@ export default function ArticlePreview({
         </Link>
       </h3>
       <div className="text-lg mb-4">
-        <DateComponent dateString={date} />
+        <DateComponent dateString={publishDate} />
       </div>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+      <p className="text-lg leading-relaxed mb-4">{description}</p>
       {author && <Avatar name={author.name} picture={author.picture} />}
     </div>
   )
