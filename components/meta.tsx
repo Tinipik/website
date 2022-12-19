@@ -1,7 +1,11 @@
 import Head from 'next/head'
 import { CMS_NAME, HOME_OG_IMAGE_URL } from '../lib/constants'
 
-export default function Meta() {
+interface Props {
+  children?: React.ReactNode;
+}
+
+const Meta: React.FC<Props> = ({ children }) => {
   return (
     <Head>
       <link
@@ -40,3 +44,5 @@ export default function Meta() {
     </Head>
   )
 }
+
+export default Meta;

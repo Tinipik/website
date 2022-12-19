@@ -10,8 +10,8 @@ module.exports = {
         'accent-1': '#FAFAFA',
         'accent-2': '#EAEAEA',
         'accent-7': '#333',
+        'shadowey': '#724343',
         success: '#0070f3',
-        cyan: '#79FFE1',
       },
       spacing: {
         28: '7rem',
@@ -21,6 +21,9 @@ module.exports = {
       },
       lineHeight: {
         tight: 1.2,
+      },
+      fontFamily: {
+        sans: ['Barlow', 'sans-serif'],
       },
       fontSize: {
         '5xl': '2.5rem',

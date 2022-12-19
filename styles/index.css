@@ -1,5 +1,52 @@
-/* purgecss start ignore */
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+/* tailwind */
 @tailwind base;
 @tailwind components;
-/* purgecss end ignore */
 @tailwind utilities;
+
+@layer components {
+  .bg-gradient {
+    background-image: linear-gradient(135deg, #4158D0 0%, #e35637 46%, #FFCC70 100%);
+  }
+
+  .bg-glassmorphism {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .navlink {
+    @apply block text-white text-xl;
+  }
+
+  .navlink-hover {
+    @apply navlink;
+    @apply underline decoration-2 decoration-white/30 underline-offset-8;
+  }
+
+  .navlink-active {
+    @apply navlink;
+    @apply underline decoration-2 decoration-teal-300 underline-offset-8;
+  }
+
+  .button {
+    @apply bg-teal-300 text-xl leading-7 px-8 py-3 inline-flex items-center rounded-xl;
+  }
+
+  .button-hover {
+    @apply button;
+    @apply bg-teal-400;
+  }
+}
+
+.navlink-home {
+  @apply mx-4;
+}
+
+.navlink-topbar {
+  @apply ml-8;
+}
