@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import Footer from "../components/footer"
 import Link from "next/link";
 
 interface Props {
@@ -9,7 +8,7 @@ interface Props {
 
 const NotFound: React.FC<Props> = () => {
   return (
-    <div className="bg-fixed bg-gradient">
+    <>
       <div className="w-full min-h-screen flex flex-col justify-start items-center">
         <main className="max-w-screen-lg w-full relative p-4 sm:p-6 md:p-8 flex flex-col items-center justify-between">
           <Head>
@@ -22,8 +21,7 @@ const NotFound: React.FC<Props> = () => {
           </div>
         </main>
       </div>
-      <Footer />
-    </div>
+    </>
   ) 
 }
 

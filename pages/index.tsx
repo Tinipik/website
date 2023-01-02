@@ -15,19 +15,22 @@ const Index: React.FC<Props> = ({ preview }) => {
       <Head>
         <title>Quentin Picault</title>
       </Head>
-      <div className="container mx-auto px-5 flex justify-center h-[22rem] relative mt-40">
-        <div className="md:w-[500px] w-[90%] h-[22rem] rounded-3xl bg-glassmorphism z-10 rotate-2 absolute"></div>
-        <div className="md:w-[500px] w-[90%] h-[22rem] rounded-3xl bg-glassmorphism z-10 absolute"></div>
-        <Logo className="md:w-[512px] w-[92%] top-32 z-20 absolute"/>
-        <img className="w-40 h-40 rounded-full -top-12 z-20 absolute" src="/avatar.jpg" alt="Quentin Picault avatar"></img>
-        <div className="md:w-[500px] w-[90%] p-8 top-48 z-20 absolute">
-          <h3 className="text-xl opacity-75">
+      <div className="container h-[calc(100vh-200px)] px-5 flex flex-col justify-center items-center">
+        <div className="md:w-[500px] w-[90%] rounded-3xl bg-glassmorphism p-8 z-0">
+          <div className="w-[100%] h-[100%] top-0 left-0 rounded-3xl bg-glassmorphism p-8 -z-1 absolute rotate-2 opacity-60"/>
+          <img
+            className="md:w-[32%] md:-top-[16%] md:left-[34%] w-[50%] -top-[12%] left-[25%] rounded-full z-20 absolute"
+            src="/avatar.jpg"
+            alt="Quentin Picault's avatar"
+          />
+          <Logo className="w-[102%] top-32 -left-[1%] z-20 absolute"/>
+          <h3 className="sm:mt-48 mt-[70%] text-xl opacity-75">
             Designing things that could be immersive or helpful is what I do.
             <br/>I also like coding stuff for fun 🎉🧑🏻‍💻🎉
-          </h3>
+          </h3>    
         </div>
+        <Nav variant="home"/>
       </div>
-      <Nav variant="home"/>
     </Layout>
   ) 
 }
