@@ -11,11 +11,11 @@ interface Props {
 
 const Index: React.FC<Props> = ({ preview }) => {
   return (
-    <Layout preview={preview}>
+    <Layout fullHeight preview={preview}>
       <Head>
         <title>Quentin Picault</title>
       </Head>
-      <div className="container h-[calc(100vh-200px)] px-5 flex flex-col justify-center items-center">
+      <div className="container h-full px-5 flex flex-col justify-center items-center">
         <div className="md:w-[500px] w-[90%] rounded-3xl bg-glassmorphism p-8 z-0">
           <div className="w-[100%] h-[100%] top-0 left-0 rounded-3xl bg-glassmorphism p-8 -z-1 absolute rotate-2 opacity-60"/>
           <img
