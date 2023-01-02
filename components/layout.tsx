@@ -5,7 +5,7 @@ import Meta from './meta'
 
 interface Props {
   preview: boolean;
-  fullHeight: boolean;
+  fullHeight?: boolean;
   children?: React.ReactNode;
 }
 
