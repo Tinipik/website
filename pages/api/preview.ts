@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { getPreviewArticleBySlug } from '../../lib/contentful'
+import { getBlogPostBySlug } from '../../lib/blog'
 
 export default async function preview(
   req: NextApiRequest,
@@ -13,20 +13,20 @@ export default async function preview(
   }
 
   // Fetch the headless CMS to check if the provided `slug` exists
-  const article = await getPreviewArticleBySlug(slug)
+  const post = await getBlogPostBySlug(slug as string, true)
 
   // If the slug doesn't exist prevent preview mode from being enabled
-  if (!article) {
+  if (!post) {
     return res.status(401).json({ message: 'Invalid slug' })
   }
 
   // Enable Preview Mode by setting the cookies
   res.setPreviewData({})
 
-  // Redirect to the path from the fetched article
+  // Redirect to the path from the fetched post
   // We don't redirect to req.query.slug as that might lead to open redirect vulnerabilities
-  // res.writeHead(307, { Location: `/articles/${article.slug}` })
-  const url = `/articles/${article.slug}`
+  // res.writeHead(307, { Location: `/blog/${post.slug}` })
+  const url = `/blog/${post.slug}`
   res.setHeader('Content-Type', 'text/html')
   res.write(
     `<!DOCTYPE html><html><head><meta http-equiv="Refresh" content="0; url=${url}" />
