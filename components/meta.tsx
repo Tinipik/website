@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { CMS_NAME, HOME_OG_IMAGE_URL } from '../lib/constants'
 
 interface Props {
   children?: React.ReactNode;
@@ -39,9 +38,9 @@ const Meta: React.FC<Props> = ({ children }) => {
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <meta
         name="description"
-        content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
+        content={`A statically generated blog example using Next.js and Contentful`}
       />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <meta property="og:image" content="https://img.itch.zone/aW1nLzgwMTY3OTMuanBn/original/YoNpqA.jpg" />
     </Head>
   )
 }

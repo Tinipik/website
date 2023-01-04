@@ -6,13 +6,21 @@
 @tailwind utilities;
 
 @layer components {
-  .bg-glassmorphism {
+  .bg-glass {
+    @apply rounded-3xl;
+    @apply shadow-lg;
+    @apply shadow-stone-600/40;
+    @apply transition-shadow;
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .bg-glass-hover {
+    @apply bg-glass;
+    @apply shadow-2xl;
+    @apply shadow-stone-900/90;
   }
 
   .navlink {
@@ -31,6 +39,7 @@
 
   .button {
     @apply bg-teal-300 text-xl leading-7 px-8 py-3 inline-flex items-center rounded-xl;
+    @apply transition-colors;
   }
 
   .button-hover {

@@ -9,6 +9,23 @@
   @apply my-6;
 }
 
+.markdown ol {
+  @apply px-5;
+  list-style: decimal;
+}
+.markdown ul {
+  @apply px-5;
+  list-style: inherit;
+}
+.markdown ul p,
+.markdown ol p {
+  @apply my-0;
+}
+
+.markdown h1 {
+  @apply text-4xl my-8 mb-4 leading-snug;
+}
+
 .markdown h2 {
   @apply text-3xl mt-12 mb-4 leading-snug;
 }

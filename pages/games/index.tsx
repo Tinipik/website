@@ -1,45 +1,63 @@
+import { GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import Layout from '../../components/layout'
 import Head from 'next/head'
 import TopBar from "../../components/topbar"
 import PageTitle from "../../components/page-title"
 import GameCard from "../../components/game-card"
+import { GamesPage, Game, getAllGames, getGamesPage } from '../../lib/games'
 
 interface Props {
+  page: GamesPage;
+  games: Array<Game>
   preview: boolean;
   children?: React.ReactNode;
 }
 
-const Games: React.FC<Props> = ({ preview }) => {
+const GamesIndex: NextPage<Props> = ({ page, games, preview }) => {
   return (
     <Layout preview={preview}>
       <Head>
-        <title>Quentin Picault | Games</title>
+        <title>{`Quentin Picault | ${page.title}`}</title>
       </Head>
 
       <TopBar/>
-      <PageTitle title="Games"/>
+
+      <PageTitle title={page.title}/>
+      <p id="description" className="block test-lg">{page.description}</p>
 
       <div className="container flex items-center justify-between flex-wrap">
-        <GameCard
-          title="Staff of Ages"
-          slug="staff-og-ages"
-          description="Some enemies need to be older or younger in order to die. You can also apply the beam on trees to make a path."
-          picture="https://img.itch.zone/aW1nLzgwMTY3OTMuanBn/original/YoNpqA.jpg"
-          date="2022-03-15"
-          platforms={["windows"]}
-          downloadLink="https://tinge.itch.io/staff-of-ages"
-        />
+        {games.map(game =>
+          <GameCard
+            key={game.slug}
+            title={game.title}
+            slug={game.slug}
+            description={game.description}
+            picture={game.picture}
+            date={game.date}
+            platforms={game.platforms}
+            link={game.link}
+          />
+        )}
       </div>
 
     </Layout>
   ) 
 }
 
-export async function getStaticProps({ preview = false }) {
+export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
+
+  const preview = ctx.preview ?? false
+  const dataGamesPage = await getGamesPage(preview)
+  const dataGames = await getAllGames(preview)
+
   return {
-    props: { preview },
+    props: {
+      preview: preview,
+      page: dataGamesPage ?? null,
+      games: dataGames ?? []
+    },
   }
 }
 
-export default Games;
+export default GamesIndex;

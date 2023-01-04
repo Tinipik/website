@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { getPreviewArticleBySlug } from '../../lib/api'
+import { getPreviewArticleBySlug } from '../../lib/contentful'
 
 export default async function preview(
   req: NextApiRequest,
