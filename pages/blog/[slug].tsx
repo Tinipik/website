@@ -18,7 +18,7 @@ const BlogPostIndex: NextPage<Props> = ({ post, preview }) => {
   return (
     <Layout preview={preview}>
       <Head>
-        <title>{`Quentin Picault | ${post.title}`}</title>
+        <title>{`Quentin Picault | ${post?.title}`}</title>
       </Head>
 
       <TopBar/>
@@ -30,18 +30,18 @@ const BlogPostIndex: NextPage<Props> = ({ post, preview }) => {
             Back
           </a>
         </div>
-        <img src={post.picture.url} alt={post.picture.title} className="w-full object-cover h-auto max-h-96 rounded-3xl"/>
-        <h1 className="mt-4 md:mt-12 text-4xl md:text-6xl font-bold font-space tracking-tight">{post.title}</h1>
+        <img src={post?.picture?.url} alt={post?.picture?.title} className="w-full object-cover h-auto max-h-96 rounded-3xl"/>
+        <h1 className="mt-4 md:mt-12 text-4xl md:text-6xl font-bold font-space tracking-tight">{post?.title}</h1>
         <div className="mt-6 flex items-center">
-          <img src={post.author.picture.url} alt={post.author.picture.title} className="w-16 h-16 object-cover rounded-full"/>
+          <img src={post?.author?.picture?.url} alt={post?.author?.picture?.title} className="w-16 h-16 object-cover rounded-full"/>
           <div className="ml-4">
-            <p className="text-lg">{post.author.fullName}</p>
+            <p className="text-lg">{post?.author?.fullName}</p>
             <p>{`Published on ${"May 18 2022"}`}</p>
           </div>
         </div>
         <article className="p-6 md:p-10 bg-white/60 mt-12 max-w-none rounded-3xl">
           <div className={markdownStyles['markdown']}>
-            {documentToReactComponents(post.content.json)}
+            {documentToReactComponents(post?.content?.json)}
           </div>
         </article>
       </div>

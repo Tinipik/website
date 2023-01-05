@@ -18,13 +18,13 @@ const GamesIndex: NextPage<Props> = ({ page, games, preview }) => {
   return (
     <Layout preview={preview}>
       <Head>
-        <title>{`Quentin Picault | ${page.title}`}</title>
+        <title>{`Quentin Picault | ${page?.title}`}</title>
       </Head>
 
       <TopBar/>
 
-      <PageTitle title={page.title}/>
-      <p id="description" className="block test-lg">{page.description}</p>
+      <PageTitle title={page?.title}/>
+      <p id="description" className="block test-lg">{page?.description}</p>
 
       <div className="container flex items-center justify-between flex-wrap">
         {games.map(game =>

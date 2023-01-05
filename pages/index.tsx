@@ -24,12 +24,12 @@ const Index: NextPage<Props> = ({ page, preview }) => {
           <div className="w-[100%] h-[100%] top-0 left-0 bg-glass p-8 -z-1 absolute rotate-2 opacity-60"/>
           <img
             className="md:w-[32%] md:-top-[16%] md:left-[34%] w-[50%] -top-[12%] left-[25%] rounded-full z-20 absolute"
-            src={page.avatar.url}
-            alt={page.avatar.title}
+            src={page?.avatar?.url}
+            alt={page?.avatar?.title}
           />
           <Logo className="w-[102%] top-32 -left-[1%] z-20 absolute"/>
           <h3 className="sm:mt-48 mt-[70%] mb-4 text-xl opacity-75">
-            {documentToReactComponents(page.description.json)}
+            {documentToReactComponents(page?.description?.json)}
           </h3>    
         </div>
         <Nav variant="home"/>
