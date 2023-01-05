@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import Link from 'next/link';
 import { useRouter } from "next/router";
 
 interface Props {
@@ -18,7 +19,7 @@ const Nav: React.FC<Props> = ({ variant, children }) => {
         'mt-8': variant === "home",
       })}
     >
-      <a 
+      <Link
         className={ router.pathname == "/" 
             ? `${vClass} navlink-active`
             : `${vClass} navlink hover:navlink-hover`
@@ -26,9 +27,9 @@ const Nav: React.FC<Props> = ({ variant, children }) => {
         href="/"
       >
         Home
-      </a>
+      </Link>
 
-      <a 
+      <Link
         className={ router.pathname == "/games" 
             ? `${vClass} navlink-active`
             : `${vClass} navlink hover:navlink-hover`
@@ -36,9 +37,9 @@ const Nav: React.FC<Props> = ({ variant, children }) => {
         href="/games"
       >
         Games
-      </a>
+      </Link>
 
-      <a 
+      <Link
         className={ router.pathname == "/blog" 
             ? `${vClass} navlink-active`
             : `${vClass} navlink hover:navlink-hover`
@@ -46,7 +47,7 @@ const Nav: React.FC<Props> = ({ variant, children }) => {
         href="/blog"
       >
         Blog
-      </a>
+      </Link>
 
     </nav>
   )

@@ -1,5 +1,6 @@
-import type { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import React from 'react'
+import type { GetStaticPaths, GetStaticProps, NextPage } from "next"
+import Link from 'next/link'
 import Layout from '../../components/layout'
 import Head from 'next/head'
 import TopBar from "../../components/topbar"
@@ -25,10 +26,10 @@ const BlogPostIndex: NextPage<Props> = ({ post, preview }) => {
 
       <div className="container p-6 md:p-10 mt-12 max-w-none bg-glass rounded-3xl">
         <div className="flex items-start mb-6">
-          <a className="button hover:button-hover" href="/blog">
+          <Link className="button hover:button-hover" href="/blog">
             <IoIosArrowBack className="mt-[2px] -ml-1 mr-2"/>
             Back
-          </a>
+          </Link>
         </div>
         <img src={post?.picture?.url} alt={post?.picture?.title} className="w-full object-cover h-auto max-h-96 rounded-3xl"/>
         <h1 className="mt-4 md:mt-12 text-4xl md:text-6xl font-bold font-space tracking-tight">{post?.title}</h1>

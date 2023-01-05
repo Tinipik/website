@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { SiWindows, SiLinux, SiNintendoswitch } from "react-icons/si";
 import { RiFinderLine, RiPlaystationFill, RiXboxFill } from "react-icons/ri";
 import { AiFillAndroid, AiFillApple } from "react-icons/ai";
@@ -25,7 +26,7 @@ const GameCard: React.FC<Props> = ({ title, slug, description, date, picture, pl
         <h4 className="text-2xl md:text-4xl font-bold font-space mb-2 md:mb-4">{title}</h4>
         <p className="mb-6">{description}</p>
         <div className="container flex flex-wrap items-start self-center">
-          <a className="button hover:button-hover mb-6 mr-4" href={link} target="_blank">Visit</a>
+          <Link className="button hover:button-hover mb-6 mr-4" href={link} target="_blank">Visit</Link>
           <div className="flex items-center justify-between flex-wrap text-stone-900 opacity-40 mt-4">
             {platforms.map(p => {
               if (p == 'windows') return <SiWindows key={`${slug}-win`} size={20} className="mr-1" title="Windows"/>
