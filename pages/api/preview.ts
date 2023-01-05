@@ -5,19 +5,18 @@ export default async function preview(
   res: NextApiResponse
 ) {
   
-  const { secret, slug } = req.query
+  const { secret, redirect } = req.query
 
-  if (secret !== process.env.CONTENTFUL_PREVIEW_SECRET || !slug) {
+  if (secret !== process.env.CONTENTFUL_PREVIEW_SECRET || !redirect) {
     return res.status(401).json({ message: 'Invalid token' })
   }
 
   res.setPreviewData({})
 
-  const url = '/'
   res.setHeader('Content-Type', 'text/html')
   res.write(
-    `<!DOCTYPE html><html><head><meta http-equiv="Refresh" content="0; url=${url}" />
-    <script>window.location.href = '${url}'</script>
+    `<!DOCTYPE html><html><head><meta http-equiv="Refresh" content="0; url=${redirect}" />
+    <script>window.location.href = '${redirect}'</script>
     </head>
     </html>`
   )
