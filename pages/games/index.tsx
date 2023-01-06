@@ -18,7 +18,7 @@ const GamesIndex: NextPage<Props> = ({ page, games, preview }) => {
   return (
     <Layout preview={preview}>
       <Head>
-        <title>{`Quentin Picault | ${page?.title}`}</title>
+        <title>{`${page?.title} - Quentin Picault`}</title>
       </Head>
 
       <TopBar/>

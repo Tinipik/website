@@ -31,16 +31,16 @@ const Meta: React.FC<Props> = ({ children }) => {
         color="#000000"
       />
       <link rel="shortcut icon" href="/favicon/favicon.ico" />
-      <meta name="msapplication-TileColor" content="#000000" />
+      <meta name="msapplication-TileColor" content="#532C93" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-      <meta name="theme-color" content="#000" />
+      <meta name="theme-color" content="#532C93" />
       <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <meta
         name="description"
-        content={`A statically generated blog example using Next.js and Contentful`}
+        content="Quentin Picault - Je viens partager mes créations et ma passion du jeu vidéo"
       />
-      <meta property="og:image" content="https://img.itch.zone/aW1nLzgwMTY3OTMuanBn/original/YoNpqA.jpg" />
+      <meta property="og:image" content="https://images.ctfassets.net/6mmt75obyu7g/4ZASHnta2ZOEFi9FMsHg52/78dd72632de97c8fa52ff028ba2c2b7d/tinge.jpg" />
     </Head>
   )
 }

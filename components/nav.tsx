@@ -26,7 +26,7 @@ const Nav: React.FC<Props> = ({ variant, children }) => {
         }
         href="/"
       >
-        Home
+        Accueil
       </Link>
 
       <Link
@@ -36,7 +36,7 @@ const Nav: React.FC<Props> = ({ variant, children }) => {
         }
         href="/games"
       >
-        Games
+        Jeux
       </Link>
 
       <Link

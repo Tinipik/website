@@ -13,7 +13,7 @@ const NotFoundIndex: NextPage<Props> = () => {
       <div className="w-full min-h-screen flex flex-col justify-start items-center">
         <main className="max-w-screen-lg w-full relative p-4 sm:p-6 md:p-8 flex flex-col items-center justify-between">
           <Head>
-            <title>Quentin Picault | Page Not Found</title>
+            <title>Page Not Found - Quentin Picault</title>
           </Head>
           <div className="container flex flex-col items-center justify-center my-6">
             <h1 className="font-bold text-white text-7xl md:text-9xl mt-36">404</h1>

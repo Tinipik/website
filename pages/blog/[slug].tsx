@@ -10,7 +10,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import markdownStyles from '../../styles/markdown-styles.module.css'
 import { format } from 'date-fns'
-import { enUS } from 'date-fns/locale'
+import { fr } from 'date-fns/locale'
 
 interface Props {
   post: BlogPost;
@@ -42,7 +42,7 @@ const BlogPostIndex: NextPage<Props> = ({ post, preview }) => {
   return (
     <Layout preview={preview}>
       <Head>
-        <title>{`Quentin Picault | ${post?.title}`}</title>
+        <title>{`${post?.title} - Quentin Picault`}</title>
       </Head>
 
       <TopBar/>
@@ -51,7 +51,7 @@ const BlogPostIndex: NextPage<Props> = ({ post, preview }) => {
         <div className="flex items-start mb-6">
           <Link className="button hover:button-hover" href="/blog">
             <IoIosArrowBack className="mt-[2px] -ml-1 mr-2"/>
-            Back
+            Retour
           </Link>
         </div>
         <img src={post?.picture?.url} alt={post?.picture?.title} className="w-full object-cover h-auto max-h-96 rounded-3xl"/>
@@ -60,10 +60,10 @@ const BlogPostIndex: NextPage<Props> = ({ post, preview }) => {
           <img src={post?.author?.picture?.url} alt={post?.author?.picture?.title} className="w-16 h-16 object-cover rounded-full"/>
           <div className="ml-4">
             <p className="text-lg">{post?.author?.fullName}</p>
-            <p>{`Published on ${format(post ? new Date(post.date) : new Date(0), 'PP', {locale: enUS})}`}</p>
+            <p>{`Publié le ${format(post ? new Date(post.date) : new Date(0), 'PP', {locale: fr})}`}</p>
           </div>
         </div>
-        <article className="p-6 md:p-10 bg-white/60 mt-12 max-w-none rounded-3xl whitespace-pre-wrap">
+        <article className="pt-4 px-6 pb-6 md:px-10 md:pb-10 bg-white/60 mt-12 max-w-none rounded-3xl whitespace-pre-wrap">
           <div className={markdownStyles['markdown']}>
             {documentToReactComponents(post?.content?.json, renderOptions(post))}
           </div>
