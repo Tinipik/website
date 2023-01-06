@@ -60,7 +60,7 @@ const BlogPostIndex: NextPage<Props> = ({ post, preview }) => {
           <img src={post?.author?.picture?.url} alt={post?.author?.picture?.title} className="w-16 h-16 object-cover rounded-full"/>
           <div className="ml-4">
             <p className="text-lg">{post?.author?.fullName}</p>
-            <p>{`Published on ${format(new Date(post.date), 'PP', {locale: enUS})}`}</p>
+            <p>{`Published on ${format(post ? new Date(post.date) : new Date(0), 'PP', {locale: enUS})}`}</p>
           </div>
         </div>
         <article className="p-6 md:p-10 bg-white/60 mt-12 max-w-none rounded-3xl whitespace-pre-wrap">
