@@ -7,10 +7,7 @@
 
 @layer components {
   .bg-glass {
-    @apply rounded-3xl;
-    @apply shadow-lg;
-    @apply shadow-stone-600/40;
-    @apply transition-shadow;
+    @apply rounded-3xl shadow-lg shadow-stone-600/40 transition-shadow;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -18,9 +15,7 @@
   }
 
   .bg-glass-hover {
-    @apply bg-glass;
-    @apply shadow-2xl;
-    @apply shadow-stone-900/90;
+    @apply bg-glass shadow-2xl shadow-stone-900/90;
   }
 
   .navlink {
@@ -28,23 +23,19 @@
   }
 
   .navlink-hover {
-    @apply navlink;
-    @apply underline decoration-2 decoration-white/30 underline-offset-8;
+    @apply navlink underline decoration-2 decoration-white/30 underline-offset-8;
   }
 
   .navlink-active {
-    @apply navlink;
-    @apply underline decoration-2 decoration-teal-300 underline-offset-8;
+    @apply navlink underline decoration-2 decoration-teal-300 underline-offset-8;
   }
 
   .button {
-    @apply bg-teal-300 text-xl leading-7 px-8 py-3 inline-flex items-center rounded-xl;
-    @apply transition-colors;
+    @apply bg-teal-300 text-xl leading-7 px-8 py-3 inline-flex items-center rounded-xl transition-colors;
   }
 
   .button-hover {
-    @apply button;
-    @apply bg-teal-400;
+    @apply button bg-teal-400;
   }
 }
 
@@ -54,6 +45,11 @@
 
 .navlink-topbar {
   @apply ml-8;
+}
+
+.inserted-code {
+  @apply font-mono text-base p-4 bg-stone-700/10 rounded-2xl;
+  white-space: pre-wrap;
 }
 
 html {

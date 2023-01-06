@@ -28,7 +28,7 @@ const Index: NextPage<Props> = ({ page, preview }) => {
             alt={page?.avatar?.title}
           />
           <Logo className="w-[102%] top-32 -left-[1%] z-20 absolute"/>
-          <h3 className="sm:mt-48 mt-[70%] mb-4 text-xl opacity-75">
+          <h3 className="sm:mt-48 mt-[70%] mb-4 text-xl opacity-75 whitespace-pre-wrap">
             {documentToReactComponents(page?.description?.json)}
           </h3>    
         </div>

@@ -6,13 +6,36 @@ import Head from 'next/head'
 import TopBar from "../../components/topbar"
 import { IoIosArrowBack } from "react-icons/io";
 import { BlogPost, getAllBlogPosts, getBlogPostBySlug } from "../../lib/blog"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import markdownStyles from '../../styles/markdown-styles.module.css'
+import { format } from 'date-fns'
+import { enUS } from 'date-fns/locale'
 
 interface Props {
   post: BlogPost;
   preview: boolean;
   children?: React.ReactNode;
+}
+
+const findAsset = (post: BlogPost, id: string) => {
+  const assets = post.content.links.assets.block as Array<any>
+  const ind = assets.findIndex(asset => asset.sys.id === id)
+  return assets[ind]
+}
+
+const renderOptions = (post: BlogPost) => {
+  return {
+    renderMark: {
+      [MARKS.CODE]: (text: any) => <div className='inserted-code'>{text}</div>,
+    },
+    renderNode : {
+      [BLOCKS.EMBEDDED_ASSET]: (node: any, next: any) => {
+        const asset = findAsset(post, node?.data?.target?.sys?.id)
+        return <img className='rounded-2xl mb-8 max-h-96 m-auto' src={asset?.url} alt={asset?.title}/>
+      }
+    }
+  }
 }
 
 const BlogPostIndex: NextPage<Props> = ({ post, preview }) => {
@@ -37,12 +60,12 @@ const BlogPostIndex: NextPage<Props> = ({ post, preview }) => {
           <img src={post?.author?.picture?.url} alt={post?.author?.picture?.title} className="w-16 h-16 object-cover rounded-full"/>
           <div className="ml-4">
             <p className="text-lg">{post?.author?.fullName}</p>
-            <p>{`Published on ${"May 18 2022"}`}</p>
+            <p>{`Published on ${format(new Date(post.date), 'PP', {locale: enUS})}`}</p>
           </div>
         </div>
-        <article className="p-6 md:p-10 bg-white/60 mt-12 max-w-none rounded-3xl">
+        <article className="p-6 md:p-10 bg-white/60 mt-12 max-w-none rounded-3xl whitespace-pre-wrap">
           <div className={markdownStyles['markdown']}>
-            {documentToReactComponents(post?.content?.json)}
+            {documentToReactComponents(post?.content?.json, renderOptions(post))}
           </div>
         </article>
       </div>

@@ -23,6 +23,7 @@ export interface BlogPost {
   date: string;
   content: {
     json: any
+    links: any
   }
 }
 
@@ -30,8 +31,18 @@ const BLOG_PAGE_FIELDS = `
 title
 description
 `
-
 const BLOG_POST_FIELDS = `
+title
+slug
+picture {
+  title
+  url
+}
+description
+date
+`
+
+const BLOG_COMPLEX_POST_FIELDS = `
 title
 slug
 author {
@@ -49,6 +60,20 @@ description
 date
 content {
   json
+  links {
+    assets {
+      block {
+        sys {
+          id
+        }
+        url
+        title
+        width
+        height
+        description
+      }
+    }
+  }
 }
 `
 
@@ -85,7 +110,7 @@ export const getBlogPostBySlug = async (slug: string, preview = false) => {
     `query {
       blogPostCollection(where: { slug: "${slug}" }, preview: ${preview ? 'true' : 'false'}, limit: 1) {
         items {
-          ${BLOG_POST_FIELDS}
+          ${BLOG_COMPLEX_POST_FIELDS}
         }
       }
     }`,

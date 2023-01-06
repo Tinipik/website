@@ -35,6 +35,5 @@
 }
 
 .markdown a {
-  @apply underline;
-	@apply text-stone-700;
+  @apply underline text-stone-700;
 }
