@@ -38,7 +38,7 @@ const Meta: React.FC<Props> = ({ children }) => {
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <meta
         name="description"
-        content="Quentin Picault - Je viens partager mes créations et ma passion du jeu vidéo"
+        content="Je viens partager mes créations et ma passion du jeu vidéo"
       />
       <meta property="og:image" content="https://images.ctfassets.net/6mmt75obyu7g/4ZASHnta2ZOEFi9FMsHg52/78dd72632de97c8fa52ff028ba2c2b7d/tinge.jpg" />
     </Head>
