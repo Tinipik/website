@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://quentinpicault.fr/sitemap.xml
+Sitemap: https://www.quentinpicault.fr/sitemap.xml
