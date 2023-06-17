@@ -14,7 +14,7 @@ export interface Game {
     title: string;
     url: string;
   }
-  platforms: Array<"windows"|"linux"|"macos"|"android"|"ios"|"switch"|"ps"|"xbox">;
+  platforms: Array<"html5"|"windows"|"linux"|"macos"|"android"|"ios"|"switch"|"ps"|"xbox">;
   link: string;
 }
 

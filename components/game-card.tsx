@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { SiWindows, SiLinux, SiNintendoswitch } from "react-icons/si";
+import { SiHtml5, SiWindows, SiLinux, SiNintendoswitch } from "react-icons/si";
 import { RiFinderLine, RiPlaystationFill, RiXboxFill } from "react-icons/ri";
 import { AiFillAndroid, AiFillApple } from "react-icons/ai";
 
@@ -13,7 +13,7 @@ interface Props {
     title: string;
     url: string;
   }
-  platforms: Array<"windows"|"linux"|"macos"|"android"|"ios"|"switch"|"ps"|"xbox">;
+  platforms: Array<"html5"|"windows"|"linux"|"macos"|"android"|"ios"|"switch"|"ps"|"xbox">;
   link: string;
   children?: React.ReactNode;
 }
@@ -29,6 +29,7 @@ const GameCard: React.FC<Props> = ({ title, slug, description, date, picture, pl
           <Link className="button hover:button-hover mb-6 mr-4" href={link} target="_blank">Jouer</Link>
           <div className="flex items-center justify-between flex-wrap text-stone-900 opacity-40 mt-4">
             {platforms.map(p => {
+              if (p == 'html5') return <SiHtml5 key={`${slug}-html5`} size={20} className="mr-1" title="HTML5"/>
               if (p == 'windows') return <SiWindows key={`${slug}-win`} size={20} className="mr-1" title="Windows"/>
               if (p == 'linux') return <SiLinux key={`${slug}-linux`} size={24} className="mr-1" title="Linux"/>
               if (p == 'macos') return <RiFinderLine key={`${slug}-macos`} size={26} className="mr-1" title="macOS"/>
