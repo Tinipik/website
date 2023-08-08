@@ -1,5 +1,6 @@
 import React from 'react'
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next"
+import Image from 'next/image'
 import Link from 'next/link'
 import Layout from '../../components/layout'
 import Head from 'next/head'
@@ -32,7 +33,7 @@ const renderOptions = (post: BlogPost) => {
     renderNode : {
       [BLOCKS.EMBEDDED_ASSET]: (node: any, next: any) => {
         const asset = findAsset(post, node?.data?.target?.sys?.id)
-        return <img className='rounded-2xl mb-8 max-h-96 m-auto' src={asset?.url} alt={asset?.title}/>
+        return <Image className='rounded-2xl mb-8 max-h-96 m-auto' src={asset?.url} alt={asset?.title} width={800} height={600}/>
       }
     }
   }
@@ -54,10 +55,10 @@ const BlogPostIndex: NextPage<Props> = ({ post, preview }) => {
             Retour
           </Link>
         </div>
-        <img src={post?.picture?.url} alt={post?.picture?.title} className="w-full object-cover h-auto max-h-96 rounded-3xl"/>
+        <Image src={post?.picture?.url} alt={post?.picture?.title} className="w-full object-cover h-auto max-h-96 rounded-3xl" width={600} height={420}/>
         <h1 className="mt-4 md:mt-12 text-4xl md:text-6xl font-bold font-space tracking-tight">{post?.title}</h1>
         <div className="mt-6 flex items-center">
-          <img src={post?.author?.picture?.url} alt={post?.author?.picture?.title} className="w-16 h-16 object-cover rounded-full"/>
+          <Image src={post?.author?.picture?.url} alt={post?.author?.picture?.title} className="w-16 h-16 object-cover rounded-full" width={256} height={256}/>
           <div className="ml-4">
             <p className="text-lg">{post?.author?.fullName}</p>
             <p>{`Publié le ${format(post ? new Date(post.date) : new Date(0), 'PP', {locale: fr})}`}</p>

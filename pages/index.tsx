@@ -1,4 +1,5 @@
 import { GetStaticProps, NextPage } from 'next'
+import Image from 'next/image'
 import React from 'react'
 import Layout from '../components/layout'
 import Head from 'next/head'
@@ -22,10 +23,12 @@ const Index: NextPage<Props> = ({ page, preview }) => {
       <div className="container h-full px-5 flex flex-col justify-center items-center">
         <div className="md:w-[500px] w-[90%] bg-glass p-8 z-0">
           <div className="w-[100%] h-[100%] top-0 left-0 bg-glass p-8 -z-1 absolute rotate-2 opacity-60"/>
-          <img
+          <Image
             className="md:w-[32%] md:-top-[16%] md:left-[34%] w-[50%] -top-[12%] left-[25%] rounded-full z-20 absolute"
             src={page?.avatar?.url}
             alt={page?.avatar?.title}
+            width={160}
+            height={160}
           />
           <Logo className="w-[102%] top-32 -left-[1%] z-20 absolute"/>
           <h3 className="sm:mt-48 mt-[70%] mb-4 text-xl opacity-75 whitespace-pre-wrap">

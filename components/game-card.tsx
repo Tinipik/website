@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { SiHtml5, SiWindows, SiLinux, SiNintendoswitch } from "react-icons/si";
 import { RiFinderLine, RiPlaystationFill, RiXboxFill } from "react-icons/ri";
@@ -21,7 +22,7 @@ interface Props {
 const GameCard: React.FC<Props> = ({ title, slug, description, date, picture, platforms, link }) => {
   return (
     <div className="mt-4 p-6 md:p-7 bg-glass flex flex-col md:flex-row items-center">
-      <img src={picture.url} alt={picture.title} className="md:w-1/3 object-cover w-full h-auto rounded-2xl"/>
+      <Image src={picture.url} alt={picture.title} width={315} height={250} className="md:w-1/3 object-cover w-full h-auto rounded-2xl"/>
       <div className="mt-4 md:mt-0 md:w-2/3 md:ml-12 w-full">
         <h4 className="text-2xl md:text-4xl font-bold font-space mb-2 md:mb-4">{title}</h4>
         <p className="mb-6">{description}</p>

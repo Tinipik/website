@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   images: {
-    loader: 'custom',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+        pathname: '**',
+      },
+    ],
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
