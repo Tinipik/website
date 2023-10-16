@@ -18,6 +18,7 @@ const Index: NextPage<Props> = ({ page, preview }) => {
   return (
     <Layout fullHeight preview={preview}>
       <Head>
+        <link rel="canonical" href="https://www.quentinpicault.com" />
         <title>Quentin Picault</title>
       </Head>
       <div className="container h-full px-5 flex flex-col justify-center items-center">
